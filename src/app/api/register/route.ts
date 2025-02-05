@@ -7,9 +7,7 @@ export async function POST(req: Request) {
     const { name, email, password } = await req.json()
     
     const exists = await prisma.user.findUnique({
-      where: {
-        email,
-      },
+      where: { email },
     })
 
     if (exists) {
@@ -33,7 +31,7 @@ export async function POST(req: Request) {
       { user: { name: user.name, email: user.email } },
       { status: 201 }
     )
-  } catch (error) {
+  } catch (err) {
     return NextResponse.json(
       { error: "Something went wrong" },
       { status: 500 }
