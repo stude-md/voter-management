@@ -2,7 +2,7 @@ import { Metadata } from "next"
 import Link from "next/link"
 import { LuArrowRight, LuShieldCheck, LuCalendar, LuActivity } from "react-icons/lu"
 import { ImageSlider } from "@/components/ImageSlider"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Footer } from "@/components/Footer"
 
