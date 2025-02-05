@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
 "use client"
 
 import * as React from "react"
@@ -37,7 +35,8 @@ interface SheetContentProps extends React.ComponentPropsWithoutRef<typeof SheetP
 const SheetContent = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Content>,
   SheetContentProps
->(function SheetContent({ side = "right", className, children, ...props }, ref) {
+>((props, ref) => {
+  const { side = "right", className, children, ...rest } = props
   return (
     <SheetPortal>
       <SheetOverlay />
@@ -57,7 +56,7 @@ const SheetContent = React.forwardRef<
           },
           className
         )}
-        {...props}
+        {...rest}
       >
         {children}
         <SheetPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-secondary">
