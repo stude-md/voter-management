@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useSession, signOut } from "next-auth/react"
-import { LuLayoutDashboard, LuVote, LuCalendarDays, LuActivity, LuMenu, LuX, LuLayoutGrid } from "react-icons/lu"
+import { LuLayoutDashboard, LuVote, LuCalendarDays, LuActivity, LuMenu, LuLayoutGrid } from "react-icons/lu"
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
