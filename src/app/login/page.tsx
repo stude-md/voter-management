@@ -1,5 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client"
+/* eslint-disable @typescript-eslint/no-unused-vars */
 
 import { useState } from "react"
 import { signIn } from "next-auth/react"
