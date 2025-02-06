@@ -5,7 +5,8 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { X } from "lucide-react"
 
 import { cn } from "@/lib/utils"
-import { LuX } from "react-icons/lu"
+// Remove the following line as it's not being used
+// import { LuX } from "react-icons/lu"
 
 const Sheet = SheetPrimitive.Root
 
