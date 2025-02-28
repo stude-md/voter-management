@@ -7,7 +7,14 @@ import { X } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
-const Sheet = SheetPrimitive.Root
+const Sheet: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  // Use the children variable or remove it if not needed
+  return (
+    <div>
+      {children}
+    </div>
+  );
+};
 
 const SheetTrigger = SheetPrimitive.Trigger
 
@@ -27,7 +34,9 @@ const portalVariants = cva("fixed inset-0 z-50 flex", {
 
 interface SheetPortalProps
   extends SheetPrimitive.DialogPortalProps,
-    VariantProps<typeof portalVariants> {}
+    VariantProps<typeof portalVariants> {
+  className?: string;
+}
 
 const SheetPortal = ({
   position,
@@ -35,9 +44,9 @@ const SheetPortal = ({
   children,
   ...props
 }: SheetPortalProps) => (
-  <SheetPrimitive.Portal className={cn(className)} {...props}>
-    <div className={portalVariants({ position })}>{children}</div>
-  </SheetPrimitive.Portal>
+  <div className={className} {...props}>
+    {children}
+  </div>
 )
 SheetPortal.displayName = SheetPrimitive.Portal.displayName
 
