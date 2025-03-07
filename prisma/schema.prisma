@@ -8,22 +8,23 @@ datasource db {
 }
 
 model User {
-  id       Int    @id @default(autoincrement())
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
   name     String
   email    String @unique
   password String
+  accounts Account[]
+  sessions Session[]
 }
 
 model Account {
   id                 String  @id @default(auto()) @map("_id") @db.ObjectId
-  userId             String  @db.ObjectId
+  userId             String 
   provider           String
   providerAccountId  String
   refreshToken       String?
   accessToken        String?
   accessTokenExpires DateTime?
   user               User    @relation(fields: [userId], references: [id], onDelete: Cascade)
-
   @@unique([provider, providerAccountId])
 }
 
@@ -31,6 +32,7 @@ model Session {
   id           String   @id @default(auto()) @map("_id") @db.ObjectId
   sessionToken String   @unique
   userId       String   @db.ObjectId
+  
   expires      DateTime
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
