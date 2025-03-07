@@ -1,15 +1,19 @@
-module.exports = {
-  // ...existing configuration...
+// eslint.config.js
+import { defineConfig } from 'eslint-define-config';
+
+export default defineConfig({
+  // Add ignores property
   ignores: [
-    'node_modules/',
-    'build/',
-    // Add other paths you want to ignore
+    'node_modules',
+    '.next',
+    'public',
+    'dist',
+    '.git'
   ],
-  // Add the Next.js plugin
+  rules: {
+    // Your existing rules
+  },
   extends: [
-    'next',
-    'next/core-web-vitals',
-    // Add other extends if needed
-  ],
-  // ...existing configuration...
-};
+    "next/core-web-vitals"
+  ]
+});
